@@ -28,7 +28,7 @@ export const CardBody = ({
           onChange={onMonthInputChange}
           value={setNumbersWithCommas(monthlyAmount.toString())}
           icon={<Image type={ImageTypes.dollar} />}
-          maxLength={15}
+          maxLength={12}
         />
       </div>
       <div className={styles.calendarWithDescription}>

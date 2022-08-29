@@ -16,7 +16,7 @@
     .dateMonth{
       @include flex(row, center,center);
       font-size: 16px;
-      font-weight: bold;
+      font-family: 'Work bold', sans-serif;
 
     }
     .dateYear{

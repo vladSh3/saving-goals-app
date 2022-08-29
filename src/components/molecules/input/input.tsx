@@ -21,6 +21,7 @@ export const Input = ({ icon, onChange, value, type, maxLength }: IProps) => {
         onChange={onChange}
         value={value}
         maxLength={maxLength}
+        max={15}
       />
     </label>
   );
