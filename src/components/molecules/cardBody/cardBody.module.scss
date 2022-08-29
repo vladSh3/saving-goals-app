@@ -7,9 +7,14 @@
   @include laptop {
     flex-direction: column;
   }
+
   .inputWithDescription {
     @include flex(column);
     max-width: 275px;
+
+    @include laptop {
+      max-width: 100%;
+    }
     .description {
       margin-bottom: 4px;
       font-family: 'Work medium', sans-serif;
@@ -32,10 +37,9 @@
       line-height: 150%;
       color: $blueGray900;
 
-
-    }
-    .calendar {
-
+      @include laptop {
+        font-size: 12px;
+      }
     }
   }
 }

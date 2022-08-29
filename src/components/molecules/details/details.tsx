@@ -6,7 +6,7 @@ import styles from "./details.module.scss";
 interface Props {
   classname?: string;
   timePeriod: number;
-  monthlyAmount: number;
+  monthlyAmount: string;
   goalDate: string;
 }
 
@@ -20,7 +20,9 @@ export const Details = ({
     <div className={`${styles.details}  ${classname ? classname : ""}`}>
       <div className={styles.descriptionWithAmountPrice}>
         <Typography classname={styles.description}>Monthly amount</Typography>
-        <Title classname={styles.monthlyAmount}>{`$ ${monthlyAmount || 0}`}</Title>
+        <Title classname={styles.monthlyAmount}>{`$ ${
+          monthlyAmount || 0
+        }`}</Title>
       </div>
       <div className={styles.detail}>
         You’re planning

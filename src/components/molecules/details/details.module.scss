@@ -35,6 +35,7 @@
       font-size: 32px;
       line-height: 120%;
       color: $brandColorSecondary;
+      word-break: break-all;
 
       @include laptop {
         font-size: 24px;
@@ -53,9 +54,6 @@
 
     @include laptop {
       margin: 0 -24px 0 -24px;
-    }
-    .bold {
-
     }
   }
 }

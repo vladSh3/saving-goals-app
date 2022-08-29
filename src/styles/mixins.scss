@@ -25,9 +25,3 @@
     @content
   }
 }
-
-@mixin small-phone{
-  @media (max-width: $small-phone) {
-    @content
-  }
-}

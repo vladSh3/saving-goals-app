@@ -5,6 +5,7 @@
   background: $neutralWhite;
   padding: 14px 17px 13px 17px;
   border: 1px solid $snow;
+  cursor: pointer;
 
   @include medium-phone {
     padding: 14px 10px 13px 10px;
@@ -30,6 +31,6 @@
   input::-webkit-inner-spin-button {
 
   -webkit-appearance: none;
-  margin: 0; 
+  margin: 0;
   }
 }

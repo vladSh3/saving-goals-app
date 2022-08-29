@@ -7,19 +7,20 @@ interface IProps {
   icon: ReactElement;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   value: string;
+  type: "text" | "number";
+  maxLength: number;
 }
 
-export const Input = ({ icon, onChange, value }: IProps) => {
-
+export const Input = ({ icon, onChange, value, type, maxLength }: IProps) => {
   return (
     <label className={styles.amountInput}>
       {icon}
       <input
-      type={'text'}
+        type={type}
         className={styles.input}
         onChange={onChange}
         value={value}
-        maxLength={15}
+        maxLength={maxLength}
       />
     </label>
   );

@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "bll/store";
 
-interface IPriceState {
-  totalAmount: number;
+export interface IPriceState {
+  totalAmount: number | null;
   goalDate: string;
   dateDiff: number;
 }
 
 const initialState: IPriceState = {
-  totalAmount: 0,
+  totalAmount: null,
   goalDate: "",
-  dateDiff : 0
+  dateDiff: 0,
 };
 
 export const amountSlice = createSlice({
@@ -29,13 +29,13 @@ export const amountSlice = createSlice({
   },
 });
 
-export const { setTotalAmount, setGoalDate ,setDateDiff } = amountSlice.actions;
+export const { setTotalAmount, setGoalDate, setDateDiff } = amountSlice.actions;
 
-export const selectTotalAmount = (state: RootState): number =>
+export const selectTotalAmount = (state: RootState): number | null =>
   state.amount.totalAmount;
 export const selectGoalDate = (state: RootState): string =>
   state.amount.goalDate;
-export const dateDiff = (state: RootState): number =>
+export const selectDateDiff = (state: RootState): number =>
   state.amount.dateDiff;
 
 export default amountSlice.reducer;

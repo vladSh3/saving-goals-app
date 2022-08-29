@@ -2,11 +2,12 @@
 import { ChangeEvent } from "react";
 //components
 import { Input, Image, Typography } from "components";
+import { Calendar } from "../calendar/calendar";
 //utils
 import { ImageTypes } from "utils/constants";
+import { setNumbersWithCommas } from "utils/helpers";
 //styles
 import styles from "./cardBody.module.scss";
-import { Calendar } from "../calendar/calendar";
 
 interface Props {
   classname?: string;
@@ -19,26 +20,21 @@ export const CardBody = ({
   onMonthInputChange,
   monthlyAmount,
 }: Props) => {
-  
-  function numberWithCommas() {
-    return monthlyAmount.toString().replaceAll(/[^0-9.]/g, '').replaceAll(/(\..*)\./g,'').replaceAll(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
   return (
     <div className={`${styles.cardBody} ${classname ? classname : ""}`}>
       <div className={styles.inputWithDescription}>
         <Typography classname={styles.description}>Total amount</Typography>
         <Input
+          type={"text"}
           onChange={onMonthInputChange}
-          value={numberWithCommas()}
+          value={setNumbersWithCommas(monthlyAmount.toString())}
           icon={<Image type={ImageTypes.dollar} />}
+          maxLength={15}
         />
       </div>
       <div className={styles.calendarWithDescription}>
         <Typography classname={styles.description}>Reach goal by</Typography>
-        <div className={styles.calendar}>
-          <Calendar />
-        </div>
+        <Calendar />
       </div>
     </div>
   );

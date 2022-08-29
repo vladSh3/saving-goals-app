@@ -1,27 +1,44 @@
 //libraries
-import { ChangeEvent, useMemo, useState } from "react";
+import { ChangeEvent, useCallback } from "react";
 //components
 import { CardBody, CardHeader, Details, Button } from "components";
+//hooks
+import { useAppSelector } from "hooks/useAppSelector";
+import {useAppDispatch} from "hooks/useTypedDispatch";
+//bll
+import {
+  selectDateDiff,
+  selectGoalDate,
+  selectTotalAmount,
+  setTotalAmount
+} from "bll/slices/amount";
+//utils
+import {replaceCharacters, setNumbersWithCommas} from "utils/helpers";
 //styles
 import styles from "./card.module.scss";
-import { useSelector } from "react-redux";
 
 export const Card = () => {
-  const [totalAmount, setTotalAmount] = useState<number>();
+  const dispatch = useAppDispatch()
+  const dateDiff = useAppSelector(selectDateDiff);
+  const goalDate = useAppSelector(selectGoalDate);
+  const totalAmount = useAppSelector(selectTotalAmount)
 
   const onMonthInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setTotalAmount(+(e.target.value.replaceAll(/[a-zA-Z]/g, "").replaceAll(",", "")));
-   
+    dispatch(setTotalAmount(replaceCharacters(e.target.value)));
+
   };
+  const monthlyAmount = totalAmount
+    ? dateDiff > 0
+      ? (totalAmount / dateDiff).toFixed(2)
+      : totalAmount
+    : 0;
+  console.log(setNumbersWithCommas('0'))
 
-//@ts-ignore
-  const dateDiff = useSelector(state => state.amount.dateDiff)
-//@ts-ignore
-  const goalDate = useSelector(state => state.amount.goalDate)
-
-  console.log(2,totalAmount);
-  
-  const monthlyAmount = totalAmount ? (dateDiff > 0 ? (totalAmount / dateDiff).toFixed(2) : totalAmount / 1) : 0 ; 
+  const onConfirm = useCallback(() => {
+    alert(
+      `You’re planning ${dateDiff} monthly deposits to reach your ${monthlyAmount} goal by ${goalDate}`
+    );
+  }, [dateDiff, monthlyAmount, goalDate]);
 
   return (
     <div className={styles.card}>
@@ -34,11 +51,11 @@ export const Card = () => {
       <Details
         classname={styles.details}
         timePeriod={dateDiff}
-        monthlyAmount={+monthlyAmount}
+        monthlyAmount={monthlyAmount.toLocaleString()}
         goalDate={goalDate}
       />
       <div className={styles.button}>
-        <Button onClick={() => {}}>Confirm</Button>
+        <Button onClick={onConfirm}>Confirm</Button>
       </div>
     </div>
   );

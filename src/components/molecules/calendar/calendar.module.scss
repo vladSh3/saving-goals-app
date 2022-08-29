@@ -4,7 +4,11 @@
     @include flex(row, center);
     background: $neutralWhite;
     border: 1px solid $snow;
-  
+
+    @include laptop {
+      justify-content: space-between;
+    }
+
     @include medium-phone {
       padding: 14px 10px 13px 10px;
     }
@@ -20,14 +24,21 @@
       color: $blueGray600;
     }
     .dateSection{
-
       min-width:75px;
     }
-  
+
     .button {
       padding: 20px;
       border: 0;
       background: $neutralWhite;
+      cursor: pointer;
+
+      &:disabled {
+        svg {
+          path {
+            fill: $blueGray400;
+          }
+        }
+      }
     }
   }
-  
