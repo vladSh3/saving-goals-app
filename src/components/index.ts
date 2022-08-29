@@ -16,5 +16,6 @@ export { CardHeader } from "./molecules/cardHeader/cardHeader";
 export { Input } from "./molecules/input/input";
 export { CardBody } from "./molecules/cardBody/cardBody";
 export { Details } from "./molecules/details/details";
+export { Calendar } from "./molecules/calendar/calendar";
 //organisms
 export { Card } from "./organisms/card/card";

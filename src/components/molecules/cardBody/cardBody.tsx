@@ -1,8 +1,7 @@
 //libraries
 import { ChangeEvent } from "react";
 //components
-import { Input, Image, Typography } from "components";
-import { Calendar } from "../calendar/calendar";
+import { Input, Image, Typography, Calendar } from "components";
 //utils
 import { ImageTypes } from "utils/constants";
 import { setNumbersWithCommas } from "utils/helpers";

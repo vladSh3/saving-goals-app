@@ -4,35 +4,33 @@ import { ChangeEvent, useCallback } from "react";
 import { CardBody, CardHeader, Details, Button } from "components";
 //hooks
 import { useAppSelector } from "hooks/useAppSelector";
-import {useAppDispatch} from "hooks/useTypedDispatch";
+import { useAppDispatch } from "hooks/useTypedDispatch";
 //bll
 import {
   selectDateDiff,
   selectGoalDate,
   selectTotalAmount,
-  setTotalAmount
+  setTotalAmount,
 } from "bll/slices/amount";
 //utils
-import {replaceCharacters, setNumbersWithCommas} from "utils/helpers";
+import { replaceCharacters } from "utils/helpers";
 //styles
 import styles from "./card.module.scss";
 
 export const Card = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const dateDiff = useAppSelector(selectDateDiff);
   const goalDate = useAppSelector(selectGoalDate);
-  const totalAmount = useAppSelector(selectTotalAmount)
+  const totalAmount = useAppSelector(selectTotalAmount);
 
   const onMonthInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     dispatch(setTotalAmount(replaceCharacters(e.target.value)));
-
   };
   const monthlyAmount = totalAmount
     ? dateDiff > 0
       ? (totalAmount / dateDiff).toFixed(2)
       : totalAmount
     : 0;
-  console.log(setNumbersWithCommas('0'))
 
   const onConfirm = useCallback(() => {
     alert(
