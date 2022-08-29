@@ -1,0 +1,33 @@
+@import "./constants";
+
+@mixin flex ($direction:'initial',$alignItems:'initial',$justifyContent:'initial',$wrap:'initial' ) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-wrap: $wrap;
+}
+
+@mixin laptop{
+ @media (max-width: $laptop) {
+   @content
+ }
+}
+
+@mixin phone{
+  @media (max-width: $phone) {
+    @content
+  }
+}
+
+@mixin medium-phone{
+  @media (max-width: $medium-phone) {
+    @content
+  }
+}
+
+@mixin small-phone{
+  @media (max-width: $small-phone) {
+    @content
+  }
+}

@@ -1,0 +1,35 @@
+@import "../../../styles/mixins";
+
+.amountInput{
+  @include flex(row, center);
+  background: $neutralWhite;
+  padding: 14px 17px 13px 17px;
+  border: 1px solid $snow;
+
+  @include medium-phone {
+    padding: 14px 10px 13px 10px;
+  }
+
+  .input {
+    margin-left: 13px;
+    border: none;
+    outline: none;
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    line-height: 120%;
+    color: $blueGray600;
+    width: 100%;
+    @include laptop {
+      font-size: 20px;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+
+  -webkit-appearance: none;
+  margin: 0; 
+  }
+}

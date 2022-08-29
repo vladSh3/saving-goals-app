@@ -1,0 +1,33 @@
+@import '../../../styles/mixins.scss';
+
+.calendarBody{
+    @include flex(row, center);
+    background: $neutralWhite;
+    border: 1px solid $snow;
+  
+    @include medium-phone {
+      padding: 14px 10px 13px 10px;
+    }
+
+    .dateMonth{
+      @include flex(row, center,center);
+      font-size: 16px;
+      font-weight: bold;
+
+    }
+    .dateYear{
+      @include flex(row, center,center);
+      color: $blueGray600;
+    }
+    .dateSection{
+
+      min-width:75px;
+    }
+  
+    .button {
+      padding: 20px;
+      border: 0;
+      background: $neutralWhite;
+    }
+  }
+  

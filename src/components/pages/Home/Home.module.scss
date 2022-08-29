@@ -1,0 +1,36 @@
+@import "../../../styles/mixins";
+
+.main {
+  background: $blueGray10;
+  height: calc(100vh - 85px);
+
+  .container {
+    max-width: 560px;
+    margin: 0 auto;
+
+    @include laptop {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .title {
+      font-family: 'Work medium', sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 120%;
+      text-align: center;
+      color: $brandColorPrimary;
+      padding: 48px 0 24px;
+
+      .bold {
+        font-family: 'Work bold', sans-serif;
+        font-weight: 500;
+      }
+
+      @include phone {
+        font-size: 18px;
+        padding: 32px 16px 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+@import "../../../styles/mixins";
+
+.card {
+  background: $neutralWhite;
+  box-shadow: $cardShadow;
+  border-radius: 8px;
+  padding: 35px 40px 40px;
+
+  @include phone {
+    box-shadow: none;
+    padding: 35px 24px;
+  }
+
+  .header {
+    margin-bottom: 28px;
+
+    @include laptop {
+      margin-bottom: 24px;
+    }
+  }
+  .body {
+    margin-bottom: 24px;
+  }
+  .details {
+    margin-bottom: 32px;
+  }
+  .button {
+    @include flex(row,center,center);
+  }
+}

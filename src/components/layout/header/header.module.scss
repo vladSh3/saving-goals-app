@@ -1,0 +1,14 @@
+@import "../../../styles/mixins";
+
+.header {
+  padding: 24px 56px;
+  background: $neutralWhite;
+
+  @include laptop {
+    padding: 20px;
+  }
+
+  @include phone {
+    padding: 16px;
+  }
+}
